@@ -30,7 +30,6 @@ function ex_1_R(a) {
     }
 }
 
-
 /*
 Esercizio 2
 Dato un numero n, restituire la somma dei primi n numeri interi positivi dispari
