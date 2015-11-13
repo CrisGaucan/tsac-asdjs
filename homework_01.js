@@ -30,6 +30,7 @@ function ex_1_R(a) {
     }
 }
 
+
 /*
 Esercizio 2
 Dato un numero n, restituire la somma dei primi n numeri interi positivi dispari
@@ -38,7 +39,7 @@ Dato un numero n, restituire la somma dei primi n numeri interi positivi dispari
 // Tempo: O(n)
 function ex_2_I(a) {
     var tot = 0;
-    for(i = 0; i < n; ++i) {
+    for(i = 0; i < a; ++i) {
         tot += 1 + 2 * i;
     }
     return tot;
@@ -48,10 +49,10 @@ function ex_2_I(a) {
 // Spazio: O(n) 
 // Tempo: O(n)
 function ex_2_R(a) {
-    if (n == 0) {
+    if (a == 0) {
         return 0;
     } else {
-        return 2 * n - 1 + ex_2_R(n - 1);
+        return 2 * a - 1 + ex_2_R(a - 1);
     }
 }
 
@@ -168,39 +169,38 @@ div(5, 3) => 1 resto 2
 // Spazio: O(n)
 // Tempo: O(n)
 function ex_6_I(a, b){
-    s = 0;
-    x = a;
-    if ( a<b ){
-         s = a + " diviso a " + b + " da 0 resto " + a;
-         return s;
+   s = 0;
+   x = a;
+   if( a<b ){
+		s = a + " diviso a " + b + " da resto " + a;
+		return s;	    
     }
-    for( i = 1; i<=b; i++){
-       a = a - b;
-       if ( a<b ){
-           s = x + " diviso a " + b + " da " + i + " resto " + a;
-           return s;  
-        }
-     }
+   for( i=1; i<=b; i++){
+		a = a - b;
+		if( a<b ){
+			s = x + " diviso a " + b + " da " + i + " resto " + a;
+			return s;
+		}   
+   }
 }
 
 
 // Ricorsive
 // Spazio: O(n)
 // Tempo: O(n)
-function ex_6_R(a, b){ 
-	quanto = 0; resto = 0; messaggio = 0; 
-	if ( a<b ){
-        quanto = 0;
-        resto = a;
-    }else{ 
-		ex_6_R((a-b), b);
-        quanto = quanto + 1;
-        a = a - b;
-    }
- messaggio = "Il risultato è " + quanto + " resto " + resto;
- return messaggio;
+function ex_6_R(a, b){
+	quanto=0; resto=0; messaggio=0;
+	if( a<b ){
+		quanto=0;
+		resto=a;
+	}else{
+		ex_6_R((a, b), b);
+		quanto = quanto + 1;
+		a = a - b;	
+	}
+	messaggio = "Il risultato è " + quanto + " resto " + resto;
+	return messaggio;
 }
-
 
 
 /*
